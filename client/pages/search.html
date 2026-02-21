@@ -1,0 +1,85 @@
+<!-- client/pages/search.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search - SocialHub</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/feed.css">
+</head>
+
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-nav">
+        <div class="sidebar-logo">🌐 SocialHub</div>
+
+        <nav>
+          <a href="/pages/feed.html" class="nav-item">
+            <span class="nav-icon">🏠</span>
+            <span>Home</span>
+          </a>
+          <a href="/pages/search.html" class="nav-item active">
+            <span class="nav-icon">🔍</span>
+            <span>Search</span>
+          </a>
+          <a href="#" class="nav-item" id="notificationsLink">
+            <span class="nav-icon">🔔</span>
+            <span>Notifications</span>
+          </a>
+          <a href="#" class="nav-item" id="profileLink">
+            <span class="nav-icon">👤</span>
+            <span>Profile</span>
+          </a>
+        </nav>
+
+        <button class="btn btn-danger btn-full mt-md" id="logoutBtn">
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="feed">
+      <div class="feed-header">
+        <h2>Search</h2>
+      </div>
+
+      <!-- Search Input -->
+      <div class="card">
+        <input type="text" class="form-input" id="searchInput" placeholder="Search for people...">
+      </div>
+
+      <!-- Search Results -->
+      <div id="searchResults">
+        <div class="empty-state">
+          <div class="empty-state-icon">🔍</div>
+          <h3 class="empty-state-title">Search for people</h3>
+          <p class="empty-state-text">
+            Find and connect with friends on SocialHub
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Widgets Panel -->
+    <aside class="widgets-panel">
+      <div class="widget">
+        <h3 class="widget-title">Popular Users</h3>
+        <div id="popularUsersContainer"></div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/pages/search.js"></script>
+</body>
+
+</html>

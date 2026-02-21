@@ -1,0 +1,134 @@
+<!-- client/pages/profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - SocialHub</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/feed.css">
+  <link rel="stylesheet" href="../assets/css/profile.css">
+</head>
+
+<body>
+  <div class="app-layout">
+    <!-- Sidebar (same as feed.html) -->
+    <aside class="sidebar">
+      <div class="sidebar-nav">
+        <div class="sidebar-logo">🌐 SocialHub</div>
+
+        <nav>
+          <a href="/pages/feed.html" class="nav-item">
+            <span class="nav-icon">🏠</span>
+            <span>Home</span>
+          </a>
+          <a href="/pages/search.html" class="nav-item">
+            <span class="nav-icon">🔍</span>
+            <span>Search</span>
+          </a>
+          <a href="#" class="nav-item" id="notificationsLink">
+            <span class="nav-icon">🔔</span>
+            <span>Notifications</span>
+            <span class="nav-badge hidden" id="notificationBadge">0</span>
+          </a>
+          <a href="#" class="nav-item active" id="profileLink">
+            <span class="nav-icon">👤</span>
+            <span>Profile</span>
+          </a>
+        </nav>
+
+        <div class="user-profile-card" id="userProfileCard">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFmMjkzNyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iLjM1ZW0iIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiM2MzY2ZjEiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWkiPlNIPC90ZXh0Pjwvc3ZnPg=="
+            alt="User" class="avatar" id="sidebarAvatar">
+          <div class="user-info">
+            <h4 id="sidebarUsername">Loading...</h4>
+            <p id="sidebarEmail">@loading</p>
+          </div>
+        </div>
+
+        <button class="btn btn-danger btn-full mt-md" id="logoutBtn">
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="feed">
+      <!-- Profile Header -->
+      <div class="profile-header">
+        <div class="profile-cover" id="profileCover"></div>
+        <div class="profile-info">
+          <div class="profile-avatar-container">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFmMjkzNyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iLjM1ZW0iIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiM2MzY2ZjEiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWkiPlNIPC90ZXh0Pjwvc3ZnPg=="
+              alt="Profile" class="profile-avatar" id="profileAvatar">
+          </div>
+
+          <div class="profile-actions">
+            <button class="btn btn-secondary btn-sm hidden" id="editProfileBtn">Edit Profile</button>
+            <button class="btn btn-primary btn-sm hidden" id="followBtn">Follow</button>
+          </div>
+
+          <div class="profile-details">
+            <h1 class="profile-name" id="profileName">Loading...</h1>
+            <p class="profile-username" id="profileUsername">@loading</p>
+            <p class="profile-bio" id="profileBio"></p>
+
+            <div class="profile-stats">
+              <div class="profile-stat" id="postsStatLink">
+                <span class="stat-value" id="postsCount">0</span>
+                <span class="stat-label">Posts</span>
+              </div>
+              <div class="profile-stat" id="followersStatLink">
+                <span class="stat-value" id="followersCount">0</span>
+                <span class="stat-label">Followers</span>
+              </div>
+              <div class="profile-stat" id="followingStatLink">
+                <span class="stat-value" id="followingCount">0</span>
+                <span class="stat-label">Following</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Tabs -->
+      <div class="profile-tabs">
+        <div class="profile-tab active" data-tab="posts">Posts</div>
+        <div class="profile-tab" data-tab="likes">Likes</div>
+        <div class="profile-tab" data-tab="followers">Followers</div>
+        <div class="profile-tab" data-tab="following">Following</div>
+      </div>
+
+      <!-- Posts Container -->
+      <div id="profileContent">
+        <!-- Content will be loaded here based on active tab -->
+      </div>
+    </main>
+
+    <!-- Widgets Panel -->
+    <aside class="widgets-panel">
+      <div class="widget">
+        <h3 class="widget-title">Suggestions</h3>
+        <div id="suggestionsContainer"></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Edit Profile Modal (will be created dynamically) -->
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/components/post.js"></script>
+  <script src="../assets/js/components/notifications.js"></script>
+  <script src="../assets/js/pages/profile.js"></script>
+</body>
+
+</html>
+
+<!-- ============================================================ -->

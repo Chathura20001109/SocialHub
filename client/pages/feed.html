@@ -1,0 +1,121 @@
+<!-- client/pages/feed.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - SocialHub</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/feed.css">
+</head>
+
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-nav">
+        <div class="sidebar-logo">🌐 SocialHub</div>
+
+        <nav>
+          <a href="/pages/feed.html" class="nav-item active">
+            <span class="nav-icon">🏠</span>
+            <span>Home</span>
+          </a>
+          <a href="/pages/search.html" class="nav-item">
+            <span class="nav-icon">🔍</span>
+            <span>Search</span>
+          </a>
+          <a href="#" class="nav-item" id="notificationsLink">
+            <span class="nav-icon">🔔</span>
+            <span>Notifications</span>
+            <span class="nav-badge hidden" id="notificationBadge">0</span>
+          </a>
+          <a href="#" class="nav-item" id="profileLink">
+            <span class="nav-icon">👤</span>
+            <span>Profile</span>
+          </a>
+        </nav>
+
+        <div class="user-profile-card" id="userProfileCard">
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFmMjkzNyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iLjM1ZW0iIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiM2MzY2ZjEiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWkiPlNIPC90ZXh0Pjwvc3ZnPg=="
+            alt="User" class="avatar" id="sidebarAvatar">
+          <div class="user-info">
+            <h4 id="sidebarUsername">Loading...</h4>
+            <p id="sidebarEmail">@loading</p>
+          </div>
+        </div>
+
+        <button class="btn btn-danger btn-full mt-md" id="logoutBtn">
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Feed -->
+    <main class="feed">
+      <div class="feed-header">
+        <h2>Home</h2>
+        <div class="feed-tabs">
+          <div class="feed-tab active" data-feed="personal">For You</div>
+          <div class="feed-tab" data-feed="global">Global</div>
+          <div class="feed-tab" data-feed="trending">Trending</div>
+        </div>
+      </div>
+
+      <!-- Post Composer -->
+      <div class="post-composer">
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzFmMjkzNyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkeT0iLjM1ZW0iIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiM2MzY2ZjEiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWkiPlNIPC90ZXh0Pjwvc3ZnPg=="
+          alt="You" class="avatar" id="composerAvatar">
+        <div class="post-composer-input">
+          <textarea class="post-composer-textarea" id="postContent" placeholder="What's happening?"></textarea>
+          <div class="post-composer-actions">
+            <div class="post-composer-icons">
+              <button class="icon-btn" id="addImageBtn" title="Add image">
+                🖼️
+              </button>
+            </div>
+            <button class="btn btn-primary" id="postBtn">Post</button>
+          </div>
+          <input type="file" id="imageInput" accept="image/*" class="hidden">
+          <input type="text" id="imageUrl" class="form-input mt-sm hidden" placeholder="Enter image URL">
+        </div>
+      </div>
+
+      <!-- Posts Container -->
+      <div id="postsContainer">
+        <!-- Posts will be dynamically loaded here -->
+      </div>
+
+      <!-- Load More -->
+      <div class="text-center mt-lg mb-lg">
+        <button class="btn btn-secondary" id="loadMoreBtn">
+          Load More
+        </button>
+      </div>
+    </main>
+
+    <!-- Widgets Panel -->
+    <aside class="widgets-panel">
+      <div class="widget">
+        <h3 class="widget-title">Who to follow</h3>
+        <div id="suggestionsContainer">
+          <!-- User suggestions will be loaded here -->
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/components/post.js"></script>
+  <script src="../assets/js/components/notifications.js"></script>
+  <script src="../assets/js/pages/feed.js"></script>
+</body>
+
+</html>
